@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link hred="script.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg-bg-white border-bottom border-secondary-subtle custom-navbar">
+   <div class="nav-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#456a92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-first-aid-kit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 8v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M4 10a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -8" /><path d="M10 14h4" /><path d="M12 12v4" /></svg>
+        <div class="nav-text">
+        <h3 class="mt-1 ml-3">DIABETES PREDICTION</h3>
+        <small class='mb-3'>Intelligent ML model for diabetes prediction</small>
+        </div>
+   </div>
+</nav>
+<div class="container my-5">
+<!--content card-->  
+<!-- main card-->
+<div class="main-card">
+  <div class="card-body upload-box row">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4745a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layers-linked"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 8.268a2 2 0 0 1 1 1.732v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2h3" /><path d="M5 15.734a2 2 0 0 1 -1 -1.734v-8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-3" /></svg>
+    <h5 class="text-center">Diabetes Prediction Form</h5>
+    <form id="prediction-form" method="post" action="/predict">
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="Pregnancies"><b>Pregnancies</b> <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Number of times being pregnant.
+      </span></label>
+      <input type="number" class="form-control" id="Pregnancies" name="Pregnancies" value="{{ Pregnancies or ''}}" placeholder="0" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="Glucose"><b>Glucose</b>
+     <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Blood sugar level (mg/dL)
+      </span></label>
+      <input type="number" class="form-control" id="Glucose" name="Glucose" value="{{ Glucose or ''}}" placeholder="148" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="BloodPressure"><b>Blood Pressure</b>
+     <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Diastolic blood pressure (mm Hg)
+      </span></label>
+      <input type="number" class="form-control" id="BloodPressure" name="BloodPressure" value="{{ BloodPressure or ''}}" placeholder="72" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="SkinThickness"><b>Skin Thickness</b>
+     <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Triceps skin fold thickness (mm)
+      </span></label>
+      <input type="number" class="form-control" id="SkinThickness" name="SkinThickness" value="{{ SkinThickness or ''}}" placeholder="35" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="Insulin"><b>Insulin</b>
+     <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        2-Hour serum insulin (mm U/ml) 
+      </span></label>
+      <input type="number" class="form-control" id="Insulin" name="Insulin" value="{{ Insulin or ''}}" placeholder="0" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="BMI"><b>BMI</b>
+     <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Body mass index
+      </span></label>
+      <input type="number" step="0.1" class="form-control" id="BMI" name="BMI" value="{{ BMI or ''}}" placeholder="33.6" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="DiabetesPedigreeFunction"><b>Diabetes Pedigree Function</b> <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Diabetes pedigree function
+      </span></label>
+      <input type="number" step="0.001" class="form-control" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" value="{{ DiabetesPedigreeFunction or ''}}" placeholder="0.627" required>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label tooltip-label" for="Age"><b>Age</b> <span class="tooltip-container">
+      ?
+      <span class="tooltip-text">
+        Age in years.Age is an important factor in diabetes risk prediction.
+      </span>
+</label>
+      <input type="number" class="form-control" id="Age" name="Age" value="{{ Age or ''}}" placeholder="50" required>
+    </div>
+
+    <div class="col-12 text-center mt-3">
+      <button type="submit" class="btn btn-primary px-5">Predict</button>
+    </div>
+
+  </div>
+</form>
+
+</div>
+</div> 
+</div> 
+{% if result %}
+<div class="alert alert-info mt-4">
+    <h4>Prediction Result</h4>
+    <p><strong>Status:</strong> {{ result.prediction }}</p>
+    <p><strong>Probability:</strong> {{ result.probability }}</p>
+</div>
+{% endif %}
+</body>
+</html>
