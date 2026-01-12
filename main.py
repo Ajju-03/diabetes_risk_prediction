@@ -47,13 +47,13 @@ def predict(
     prediction = model.predict(features)[0]
     probability = model.predict_proba(features)[0][1]
     risk_level = get_risk_level(probability, Glucose, BMI)
-    recommendations = generate_recommendations(input_data, probability)
+    recs_list = generate_recommendations(input_data, probability)
+    recommendations_text = " . ".join(recs_list)
 
     return templates.TemplateResponse("index.html",{"request": request,
        "prediction": "Diabetic" if prediction == 1 else "Non-Diabetic",
        "probability": round(probability, 2),
        "risk_level": risk_level,
-       "recommendation": recommendations
+       "recommendation": recommendations_text
         })
-
 

@@ -104,4 +104,62 @@ input.form-control {
   visibility: visible;
   opacity: 1;
 }
+.prediction-form {
+    max-width: 500px;
+    margin: auto;
+}
 
+/* Push result away from form */
+.result-wrapper {
+    margin-top: 24px;
+}
+
+/* Card look */
+.result-card {
+    max-width: 650px;
+    margin: auto;
+    padding: 10px 16px;
+    border-top: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+/* Alignment */
+.result-card .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.label { 
+  opacity: 0.9;
+  font-weight: 700;
+}
+.value { font-weight: 400; }
+
+.recommendation {
+    margin-top: 8px;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+/* Risk colors */
+.low    { background: #7dcd9f; }
+.medium { background: #d8a656; }
+.high   { background: #cf5547; }
+.recommendation {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.recommendation ul {
+    margin: 6px 0 0 18px;
+    padding: 0;
+}
+
+.recommendation li {
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
