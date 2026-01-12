@@ -9,21 +9,26 @@
 📦 Diabetes-Prediction-App
 ├── data/
 |   └── diabetes.zip
+
 |
 ├── 📂 extracted_data/
 |   ├── data_ingestion.py
 │   └── diabetes.csv
+
 │ 
 ├── 📁 logic
 |   ├── risk.py
 |   └── recommendations.py
+
 |
 ├── 📂 templates/
 │   └── index.html
+
 │
 ├── 📂 static/
 │   ├── css/
 │   └── images/
+
 │
 ├── 📂 notebook/
 │   ├── pipeline_models/
@@ -32,13 +37,16 @@
 |      ├── random_forest.py
 |      ├── xgboost.py
 |      └── reports.py
+
 |
 |   ├── src/
 |       ├── handle_missing_values.py
 |       ├── preprocessing.py
 |       └── split_data.py
+
 |   ├── EDA.ipynb
-|   └── diabetes_pipeline.joblib 
+|   └── diabetes_pipeline.joblib
+
 |
 ├──  main.py  
 ├── requirements.txt
@@ -164,3 +172,4 @@ FastAPI automatically generates interactive API docs:
 
 - Swagger UI: http://127.0.0.1:8000/docs
 - ReDoc: http://127.0.0.1:8000/redoc
+
