@@ -12,7 +12,13 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-model = joblib.load("notebook/diabetes_pipeline.joblib")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "notebook", "diabetes_pipeline.joblib")
+
+model = joblib.load(model_path)
+
 
 @app.get("/", response_class=HTMLResponse)
 def read_form(request: Request):

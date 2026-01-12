@@ -1,5 +1,7 @@
 fastapi
 uvicorn
-joblib
+jinja2
+python-multipart
 numpy
+joblib
 scikit-learn
